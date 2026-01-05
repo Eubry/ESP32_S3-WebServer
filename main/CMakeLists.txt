@@ -1,0 +1,15 @@
+idf_component_register(SRCS "main.cpp" "lib/SSD1306/SSD1306.cpp"
+                    PRIV_REQUIRES 
+                        freertos
+                        esp_common 
+                        log 
+                        driver 
+                        esp_timer 
+                        esp_lcd
+                        lvgl
+                        esp_lvgl_port
+                        esp_wifi 
+                        nvs_flash
+                    INCLUDE_DIRS "." "include" "lib")
+
+
