@@ -1,9 +1,9 @@
-set(CMAKE_HOST_SYSTEM "Windows-10.0.26200")
-set(CMAKE_HOST_SYSTEM_NAME "Windows")
-set(CMAKE_HOST_SYSTEM_VERSION "10.0.26200")
-set(CMAKE_HOST_SYSTEM_PROCESSOR "AMD64")
+set(CMAKE_HOST_SYSTEM "Linux-6.6.87.2-microsoft-standard-WSL2")
+set(CMAKE_HOST_SYSTEM_NAME "Linux")
+set(CMAKE_HOST_SYSTEM_VERSION "6.6.87.2-microsoft-standard-WSL2")
+set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
-include("C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/S3_Supermini/ESP32_S3 WebServer/main/build/toolchain/toolchain-esp32s3.cmake")
+include("/workspaces/main/build/toolchain/toolchain-esp32s3.cmake")
 
 set(CMAKE_SYSTEM "Generic")
 set(CMAKE_SYSTEM_NAME "Generic")

@@ -2,34 +2,34 @@
 	"sources" : 
 	[
 		{
-			"file" : "C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/S3_Supermini/ESP32_S3 WebServer/main/build/CMakeFiles/bootloader"
+			"file" : "/workspaces/main/build/CMakeFiles/bootloader"
 		},
 		{
-			"file" : "C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/S3_Supermini/ESP32_S3 WebServer/main/build/CMakeFiles/bootloader.rule"
+			"file" : "/workspaces/main/build/CMakeFiles/bootloader.rule"
 		},
 		{
-			"file" : "C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/S3_Supermini/ESP32_S3 WebServer/main/build/CMakeFiles/bootloader-complete.rule"
+			"file" : "/workspaces/main/build/CMakeFiles/bootloader-complete.rule"
 		},
 		{
-			"file" : "C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/S3_Supermini/ESP32_S3 WebServer/main/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+			"file" : "/workspaces/main/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
 		},
 		{
-			"file" : "C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/S3_Supermini/ESP32_S3 WebServer/main/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+			"file" : "/workspaces/main/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
 		},
 		{
-			"file" : "C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/S3_Supermini/ESP32_S3 WebServer/main/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+			"file" : "/workspaces/main/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
 		},
 		{
-			"file" : "C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/S3_Supermini/ESP32_S3 WebServer/main/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+			"file" : "/workspaces/main/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
 		},
 		{
-			"file" : "C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/S3_Supermini/ESP32_S3 WebServer/main/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+			"file" : "/workspaces/main/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
 		},
 		{
-			"file" : "C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/S3_Supermini/ESP32_S3 WebServer/main/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+			"file" : "/workspaces/main/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
 		},
 		{
-			"file" : "C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/S3_Supermini/ESP32_S3 WebServer/main/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+			"file" : "/workspaces/main/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
 		}
 	],
 	"target" : 
