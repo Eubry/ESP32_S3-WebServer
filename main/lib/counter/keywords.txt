@@ -1,0 +1,28 @@
+#######################################
+# Syntax Coloring Map For Counter
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+cCount	KEYWORD1
+cTime	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+count	KEYWORD2
+wait	KEYWORD2
+get	KEYWORD2
+start	KEYWORD2
+finish	KEYWORD2
+after	KEYWORD2
+currentFlag	KEYWORD2
+nextFlag	KEYWORD2
+reset	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################

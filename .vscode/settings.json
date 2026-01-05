@@ -1,20 +1,35 @@
 {
   "C_Cpp.intelliSenseEngine": "default",
   "idf.espIdfPathWin": "C:\\Users\\eubry\\esp\\v6.0\\esp-idf",
-  "idf.pythonInstallPath": "/opt/esp/python_env/idf6.1_py3.12_env/bin/python",
+  "idf.pythonInstallPath": "C:\\Users\\eubry\\.espressif\\tools\\idf-python\\3.11.2\\python.exe",
   "idf.openOcdConfigs": [
     "board/esp32s3-bridge.cfg"
   ],
   "idf.toolsPathWin": "C:\\Users\\eubry\\.espressif",
   "idf.customExtraVars": {
-    "IDF_TARGET": "esp32s3"
+    "IDF_TARGET": "esp32s3",
+    "FORCE_COLOR": "1",
+    "COLORTERM": "truecolor",
+    "IDF_COLOR": "always",
+    "CLICOLOR_FORCE": "1"
   },
-  "clangd.path": "C:\\Users\\eubry\\.espressif\\tools\\esp-clang\\esp-18.1.2_20240912\\esp-clang\\bin\\clangd.exe",
+  "clangd.path": "C:\\Users\\eubry\\.espressif\\tools\\esp-clang\\esp-20.1.1_20250829\\esp-clang\\bin\\clangd.exe",
   "clangd.arguments": [
     "--background-index",
     "--query-driver=**",
-    "--compile-commands-dir=c:\\Users\\eubry\\OneDrive\\Documents\\Programs\\Protoboard\\ESP32\\ESPIDF\\S3_Supermini\\IntConn\\build"
+    "--compile-commands-dir=c:\\Users\\eubry\\OneDrive\\Documents\\Programs\\Protoboard\\ESP32\\ESPIDF\\S3_Supermini\\ESP32_S3 WebServer\\main\\build"
   ],
   "idf.flashType": "UART",
-  "idf.portWin": "COM11"
+  "idf.portWin": "COM11",
+  "terminal.integrated.enablePersistentSessions": false,
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.windowsEnableConpty": true,
+  "terminal.integrated.env.windows": {
+    "PYTHONUNBUFFERED": "1",
+    "FORCE_COLOR": "1",
+    "COLORTERM": "truecolor",
+    "TERM": "xterm-256color",
+    "IDF_COLOR": "always",
+    "CLICOLOR_FORCE": "1"
+  }
 }

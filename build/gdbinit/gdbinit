@@ -1,2 +1,2 @@
-source /workspaces/main/build/gdbinit/symbols
-source /workspaces/main/build/gdbinit/connect
+source C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/S3_Supermini/ESP32_S3 WebServer/main/build/gdbinit/symbols
+source C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/S3_Supermini/ESP32_S3 WebServer/main/build/gdbinit/connect

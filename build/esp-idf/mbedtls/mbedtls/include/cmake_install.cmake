@@ -1,8 +1,8 @@
-# Install script for directory: /opt/esp/idf/components/mbedtls/mbedtls/include
+# Install script for directory: C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/IntConn")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,42 +34,42 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/opt/esp/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-objdump")
+  set(CMAKE_OBJDUMP "C:/Users/eubry/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-objdump.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/mbedtls" TYPE FILE PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ FILES
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/build_info.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/debug.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/error.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/mbedtls_config.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/net_sockets.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/oid.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/pkcs7.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/ssl.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/ssl_cache.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/ssl_ciphersuites.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/ssl_cookie.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/ssl_ticket.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/timing.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/version.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/x509.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/x509_crl.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/x509_csr.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/build_info.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/debug.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/error.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/mbedtls_config.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/net_sockets.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/oid.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/pkcs7.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ssl.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ssl_cache.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ssl_ciphersuites.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ssl_cookie.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ssl_ticket.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/timing.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/version.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/x509.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/x509_crl.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/x509_crt.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/x509_csr.h"
     )
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/mbedtls/private" TYPE FILE PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ FILES
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/private/config_adjust_ssl.h"
-    "/opt/esp/idf/components/mbedtls/mbedtls/include/mbedtls/private/config_adjust_x509.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/private/config_adjust_ssl.h"
+    "C:/Users/eubry/esp/v6.0/esp-idf/components/mbedtls/mbedtls/include/mbedtls/private/config_adjust_x509.h"
     )
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/workspaces/main/build/esp-idf/mbedtls/mbedtls/include/install_local_manifest.txt"
+  file(WRITE "C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/S3_Supermini/ESP32_S3 WebServer/main/build/esp-idf/mbedtls/mbedtls/include/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

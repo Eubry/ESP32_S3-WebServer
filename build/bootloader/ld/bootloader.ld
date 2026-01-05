@@ -1,30 +1,50 @@
 /*
+
  * SPDX-FileCopyrightText: 2021-2025 Espressif Systems (Shanghai) CO LTD
+
  *
+
  * SPDX-License-Identifier: Apache-2.0
+
  */
 /*
+
  * Automatically generated file. DO NOT EDIT.
- * Espressif IoT Development Framework (ESP-IDF) 6.1.0 Configuration Header
+
+ * Espressif IoT Development Framework (ESP-IDF) 6.0.0 Configuration Header
+
  */
        
 /* List of deprecated options */
 /** Simplified memory map for the bootloader.
+
  *  Make sure the bootloader can load into main memory without overwriting itself.
+
  *
+
  *  ESP32-S3 ROM static data usage is as follows:
+
  *  - 0x3fcd7e00 - 0x3fce9704: Shared buffers, used in UART/USB/SPI download mode only
+
  *  - 0x3fce9710 - 0x3fceb710: PRO CPU stack, can be reclaimed as heap after RTOS startup
+
  *  - 0x3fceb710 - 0x3fced710: APP CPU stack, can be reclaimed as heap after RTOS startup
+
  *  - 0x3fced710 - 0x3fcf0000: ROM .bss and .data (not easily reclaimable)
+
  *
+
  *  The 2nd stage bootloader can take space up to the end of ROM shared
+
  *  buffers area (0x3fce9704). For alignment purpose we shall use value (0x3fce9700).
+
  */
 /* The offset between Dbus and Ibus. Used to convert between 0x403xxxxx and 0x3fcxxxxx addresses. */
 iram_dram_offset = 0x6f0000;
 /* We consider 0x3fce9700 to be the last usable address for 2nd stage bootloader stack overhead, dram_seg,
+
  * and work out iram_seg and iram_loader_seg addresses from there, backwards.
+
  */
 /* These lengths can be adjusted, if necessary: */
 bootloader_usable_dram_end = 0x3fce9700;
@@ -44,10 +64,15 @@ MEMORY
   dram_seg (RW) : org = bootloader_dram_seg_start, len = bootloader_dram_seg_len
 }
 /* The app may use RAM for static allocations up to the start of iram_loader_seg.
+
  * If you have changed something above and this assert fails:
+
  * 1. Check what the new value of bootloader_iram_loader_seg start is.
+
  * 2. Update the value in this assert.
+
  * 3. Update SRAM_IRAM_END in components/esp_system/ld/esp32s3/memory.ld.in to the same value.
+
  */
 ASSERT(bootloader_iram_loader_seg_start == 0x403CB700, "bootloader_iram_loader_seg_start inconsistent with SRAM_IRAM_END");
 /* Default entry point: */
@@ -201,22 +226,34 @@ SECTIONS
     *(.fini)
     *(.gnu.version)
     /** CPU will try to prefetch up to 16 bytes of
+
       * of instructions. This means that any configuration (e.g. MMU, PMS) must allow
+
       * safe access to up to 16 bytes after the last real instruction, add
+
       * dummy bytes to ensure this
+
       */
     . += 16;
     _text_end = ABSOLUTE(.);
     _etext = .;
   } > iram_seg
   /** This section will be used by the debugger and disassembler to get more information
+
    * about raw data present in the code.
+
    * Indeed, it may be required to add some padding at some points in the code
+
    * in order to align a branch/jump destination on a particular bound.
+
    * Padding these instructions will generate null bytes that shall be
+
    * interpreted as data, and not code by the debugger or disassembler.
+
    * This section will only be present in the ELF file, not in the final binary
+
    * For more details, check GCC-212
+
    */
   .xt.prop 0 :
   {
@@ -268,8 +305,11 @@ SECTIONS
   .comment 0 : { *(.comment) }
   .note.GNU-stack 0: { *(.note.GNU-stack) }
   /**
+
    * This section is not included in the binary image; it is only present in the ELF file.
+
    * It is used to keep certain symbols in the ELF file.
+
    */
   .noload 0 (INFO) :
   {
@@ -282,40 +322,77 @@ SECTIONS
   }
 }
 /**
+
  *  Appendix: Memory Usage of ROM bootloader
+
  *
+
  * 0x3fcd7e00 ------------------> _dram0_0_start
+
  *            |               |
+
  *            |               |
+
  *            |               |   1. Large buffers that are only used in certain boot modes, see shared_buffers.h
+
  *            |               |
+
  *            |               |
+
  * 0x3fce9710 ------------------> __stack_sentry
+
  *            |               |
+
  *            |               |   2. Startup pro cpu stack (freed when IDF app is running)
+
  *            |               |
+
  * 0x3fceb710 ------------------> __stack (pro cpu)
+
  *            |               |
+
  *            |               |      Startup app cpu stack
+
  *            |               |
+
  * 0x3fced710 ------------------> __stack_app (app cpu)
+
  *            |               |
+
  *            |               |
+
  *            |               |   3. Shared memory only used in startup code or nonos/early boot*
+
  *            |               |      (can be freed when IDF runs)
+
  *            |               |
+
  *            |               |
+
  * 0x3fceee34 ------------------> _dram0_rtos_reserved_start
+
  *            |               |
+
  *            |               |
+
  *            |               |   4. Shared memory used in startup code and when IDF runs
+
  *            |               |
+
  *            |               |
+
  * 0x3fcef770 ------------------> _dram0_rtos_reserved_end
+
  *            |               |
+
  * 0x3fcef81c ------------------> _data_start_interface
+
  *            |               |
+
  *            |               |   5. End of DRAM is the 'interface' data with constant addresses (ECO compatible)
+
  *            |               |
+
  * 0x3fcf0000 ------------------> _data_end_interface
+
  */

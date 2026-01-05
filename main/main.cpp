@@ -13,23 +13,41 @@
    If you'd rather not, just change the below entries to strings with
    the config you want - ie #define WIFI_SSID "mywifissid"
 */
+#define LOG_TAG "MAIN"
 #define WIFI_SSID CONFIG_ESP_WIFI_SSID
 #define WIFI_PASS CONFIG_ESP_WIFI_PASSWORD
+//------Task Handles------
+TaskHandle_t DspStatHandle = NULL;
+//------Global Objects------
 OLEDDisplay disp;
 oledParam_t oledParams;
-
+taskManager tskMgr;
+//------Function Prototypes------
+void DspStat(void *pvParameters);
+//------Main Application------
 extern "C" void app_main(void) {
-  oledParams.pinSCL = 12;
-  oledParams.pinSDA = 11;
+   oledParams.pinSCL = 13;
+   oledParams.pinSDA = 12;
 
-  disp.begin(oledParams);
-  disp.addLabel("stat", 0, 0);
-  disp.setLabel("stat", "Program started!");
-  vTaskDelay(pdMS_TO_TICKS(500));
-  disp.setLabel("stat", "Inicializating tasks...");
+   disp.begin(oledParams);
+   disp.addLabel("stat", 0, 0);
+   disp.setLabel("stat", "Program started!");
+   vTaskDelay(pdMS_TO_TICKS(500));
+   disp.setLabel("stat", "Init tasks...");
 
-  //Initialize NVS
+   tskMgr.add("Display status", DspStat, NULL, 1, 0, 2000);
    
+   
+}
+
+//------Function Definitions------
+void DspStat(void *pvParameters) {
+   while(1) {
+      disp.setLabel("stat", "OLED Started...");
+      vTaskDelay(pdMS_TO_TICKS(1000));
+   }
 }
 //Testing GitHub commit
 //Testing GitHub commit2
+//Changes ready to push
+//Changes from virtual machine

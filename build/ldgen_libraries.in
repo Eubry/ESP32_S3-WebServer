@@ -15,7 +15,6 @@ $<TARGET_FILE:__idf_xtensa>
 $<TARGET_FILE:xtensa_xt_hal>
 $<TARGET_FILE:__idf_vfs>
 $<TARGET_FILE:__idf_esp_driver_uart>
-$<TARGET_FILE:__idf_esp_hal_uart>
 $<TARGET_FILE:__idf_esp_pm>
 $<TARGET_FILE:__idf_esp_driver_gpio>
 $<TARGET_FILE:__idf_esp_hal_gpio>
@@ -65,7 +64,6 @@ $<TARGET_FILE:esp_wifi_pp>
 $<TARGET_FILE:esp_wifi_smartconfig>
 $<TARGET_FILE:esp_wifi_wapi>
 $<TARGET_FILE:__idf_esp_hal_dma>
-$<TARGET_FILE:__idf_esp_hal_pmu>
 $<TARGET_FILE:__idf_esp_hal_touch_sens>
 $<TARGET_FILE:__idf_esp_hal_i2s>
 $<TARGET_FILE:__idf_pthread>
@@ -81,7 +79,6 @@ $<TARGET_FILE:idf::efuse>
 $<TARGET_FILE:idf::esp_hal_timg>
 $<TARGET_FILE:idf::esp_timer>
 $<TARGET_FILE:idf::esp_driver_gpio>
-$<TARGET_FILE:idf::esp_hal_uart>
 $<TARGET_FILE:idf::esp_pm>
 $<TARGET_FILE:idf::esp_hal_wdt>
 $<TARGET_FILE:idf::esp_hal_ana_conv>
@@ -96,7 +93,6 @@ $<TARGET_FILE:idf::heap>
 $<TARGET_FILE:idf::soc>
 $<TARGET_FILE:idf::esp_hal_dma>
 $<TARGET_FILE:idf::esp_hal_usb>
-$<TARGET_FILE:idf::esp_hal_pmu>
 $<TARGET_FILE:idf::esp_hal_touch_sens>
 $<TARGET_FILE:idf::esp_hal_i2s>
 $<TARGET_FILE:idf::esp_hw_support>
