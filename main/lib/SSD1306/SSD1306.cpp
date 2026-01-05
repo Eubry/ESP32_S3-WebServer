@@ -17,21 +17,19 @@ void OLEDDisplay::begin(oledParam_t &param){
     };
     ESP_ERROR_CHECK(i2c_new_master_bus(&bus_config, &_i2c_bus));
     ESP_LOGI(_par->tag.c_str(), "Install panel IO");
-    esp_lcd_panel_io_i2c_config_t io_config = {
-        .dev_addr = _par->address,
-        .control_phase_bytes = 1,               // According to SSD1306 datasheet
-        .dc_bit_offset = 6,                     // According to SSD1306 datasheet
-        .lcd_cmd_bits = LCD_CMD_BITS,           // According to SSD1306 datasheet
-        .lcd_param_bits = LCD_PARAM_BITS,       // According to SSD1306 datasheet
-        .scl_speed_hz = LCD_PIXEL_CLOCK_HZ,
-    };
+    esp_lcd_panel_io_i2c_config_t io_config = {};
+    io_config.dev_addr = _par->address;
+    io_config.scl_speed_hz = LCD_PIXEL_CLOCK_HZ;
+    io_config.control_phase_bytes = 1;          // According to SSD1306 datasheet
+    io_config.lcd_cmd_bits = LCD_CMD_BITS;      // According to SSD1306 datasheet
+    io_config.lcd_param_bits = LCD_PARAM_BITS;  // According to SSD1306 datasheet
+    io_config.dc_bit_offset = 6;                // According to SSD1306 datasheet
     ESP_ERROR_CHECK(esp_lcd_new_panel_io_i2c(_i2c_bus, &io_config, &_io_handle));
     ESP_LOGI(_par->tag.c_str(), "Install SSD1306 panel driver");
     // esp_lcd_panel_handle_t panel_handle = NULL;
-    esp_lcd_panel_dev_config_t panel_config = {
-        .reset_gpio_num = GPIO_NUM_NC,
-        .bits_per_pixel = 1,
-    };
+    esp_lcd_panel_dev_config_t panel_config = {};
+    panel_config.reset_gpio_num = GPIO_NUM_NC;
+    panel_config.bits_per_pixel = 1;
     esp_lcd_panel_ssd1306_config_t ssd1306_config = {
         .height = _par->lcdHeight,
     };
