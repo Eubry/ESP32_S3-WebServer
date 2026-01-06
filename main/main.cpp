@@ -14,7 +14,7 @@
    the config you want - ie #define WIFI_SSID "mywifissid"
 */
 #define LOG_TAG "MAIN"
-#define WIFI_SSID "RE3X4S"//CONFIG_ESP_WIFI_SSID
+#define WIFI_SSID "R3X4S"//CONFIG_ESP_WIFI_SSID
 #define WIFI_PASS "N1C0L4T3SL4"//CONFIG_ESP_WIFI_PASSWORD
 //------Global Objects------
 OLEDDisplay disp;
@@ -34,6 +34,8 @@ extern "C" void app_main(void) {
    disp.addLabel("swifi", 0, 12);
    disp.addLabel("wstat", 0, 24);
    disp.setLabel("stat", "Program started!");
+   disp.setLabel("swifi", "");
+   disp.setLabel("wstat", "");
    vTaskDelay(pdMS_TO_TICKS(500));
    disp.setLabel("stat", "Init tasks...");
    wConn.begin(WIFI_MODE_STA);
@@ -54,7 +56,7 @@ void wifi(void *pvParameters) {
    while(1) {
       disp.setLabel("swifi", "Wifi Started");
       if(wConn.isConnected()) {
-         disp.setLabel("wstat", "WiFi Connected");
+         disp.setLabel("wstat", wConn.getIp().c_str());
       } else {
          disp.setLabel("wstat", "WiFi Disconnected");
       }
