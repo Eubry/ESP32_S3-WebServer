@@ -50,28 +50,38 @@ extern "C" void app_main(void) {
 
 //------Function Definitions------
 void DspStat(void *pvParameters) {
+   static cTime rwdt;
+   static cTime upt;
    // Small delay to ensure task is registered before calling resetWatchdog
    vTaskDelay(pdMS_TO_TICKS(100));
    while(1) {
       disp.setLabel("stat", "OLED Started");
-      tskMgr.resetWatchdog("DisplayStat");
-      vTaskDelay(pdMS_TO_TICKS(1000));
-   }
-}
-void wifi(void *pvParameters) {
-   static cTime rwdt;
-   static cTime upt;
-   while(1) {
-      // Update WiFi status display
       upt.wait(500000); // 500000 microseconds = 0.5 seconds
       if(upt.finish()) {
-         disp.setLabel("swifi", "Wifi Started");
          if(wConn.isConnected()) {
             disp.setLabel("wstat", wConn.getIp().c_str());
             disp.setLabel("outloop", wConn.getHostname().c_str());
          } else {
             disp.setLabel("wstat", "WiFi Disconnected");
          }
+      }
+      rwdt.wait(4000000); // 4000000 microseconds = 4 seconds
+      if(rwdt.finish()) {
+         // Reset watchdog every loop iteration to prevent timeout
+         tskMgr.resetWatchdog("DisplayStat");
+      }
+      vTaskDelay(pdMS_TO_TICKS(10));
+   }
+}
+void wifi(void *pvParameters) {
+   static cTime rwdt;
+   static cTime upt;
+   disp.setLabel("swifi", "Wifi Started");
+   while(1) {
+      // Update WiFi status display
+      upt.wait(500000); // 500000 microseconds = 0.5 seconds
+      if(upt.finish()) {
+         
       }
       rwdt.wait(4000000); // 4000000 microseconds = 4 seconds
       if(rwdt.finish()) {
@@ -83,7 +93,3 @@ void wifi(void *pvParameters) {
 
    }
 }
-//Testing GitHub commit
-//Testing GitHub commit2
-//Changes ready to push
-//Changes from virtual machine
