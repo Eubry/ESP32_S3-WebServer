@@ -177,8 +177,8 @@ git submodule status
 WiFi credentials are currently hardcoded in `main.cpp` for testing purposes:
 
 ```cpp
-#define WIFI_SSID "R3X4S"          // Your WiFi network name
-#define WIFI_PASS "N1C0L4T3SL4"   // Your WiFi password
+#define WIFI_SSID "yourSSID"          // Your WiFi network name
+#define WIFI_PASS "yourPassword"   // Your WiFi password
 ```
 
 **To configure for your network**, edit these values in [main/main.cpp](main/main.cpp#L17-L18).
