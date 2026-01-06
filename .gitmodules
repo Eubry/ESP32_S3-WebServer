@@ -1,0 +1,3 @@
+[submodule "components/DevLib"]
+	path = components/DevLib
+	url = https://github.com/Eubry/DevLib-DevelopmentBoardLibraries.git
