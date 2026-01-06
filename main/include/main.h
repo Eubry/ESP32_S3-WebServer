@@ -10,5 +10,6 @@
 #include "SSD1306/SSD1306.h"
 #include "wifiManager.h"
 #include "pinManager.h"
+#include "esp_http_server.h"
 
 using namespace Utils;

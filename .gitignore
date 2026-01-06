@@ -1936,3 +1936,6 @@ build/esp-idf/esp_app_format/libesp_app_format.a
 build/esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/esp_app_desc.c.obj
 build/esp-idf/main/libmain.a
 build/esp-idf/main/CMakeFiles/__idf_main.dir/lib/SSD1306/SSD1306.cpp.obj
+build/CMakeCache.txt
+build/CMakeFiles/CMakeConfigureLog.yaml
+build/CMakeFiles/git-data/head-ref

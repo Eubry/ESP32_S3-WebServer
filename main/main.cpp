@@ -21,9 +21,12 @@ OLEDDisplay disp;
 oledParam_t oledParams;
 taskManager tskMgr;
 wifiConnection wConn(WIFI_SSID, WIFI_PASS,5,"ESP32S3WS");
+httpd_handle_t server = NULL;
 //------Function Prototypes------
 void DspStat(void *pvParameters);
 void wifi(void *pvParameters);
+esp_err_t root_handler(httpd_req_t *req);
+httpd_handle_t start_webserver(void);
 //------Main Application------
 extern "C" void app_main(void) {
    oledParams.pinSCL = 13;
@@ -81,7 +84,19 @@ void wifi(void *pvParameters) {
       // Update WiFi status display
       upt.wait(500000); // 500000 microseconds = 0.5 seconds
       if(upt.finish()) {
-         
+         // Start HTTP server when WiFi is connected
+         if(wConn.isConnected() && server == NULL) {
+            server = start_webserver();
+            if(server != NULL) {
+               ESP_LOGI(LOG_TAG, "HTTP Server started");
+            }
+         }
+         // Stop HTTP server when WiFi is disconnected
+         if(!wConn.isConnected() && server != NULL) {
+            httpd_stop(server);
+            server = NULL;
+            ESP_LOGI(LOG_TAG, "HTTP Server stopped");
+         }
       }
       rwdt.wait(4000000); // 4000000 microseconds = 4 seconds
       if(rwdt.finish()) {
@@ -92,4 +107,35 @@ void wifi(void *pvParameters) {
       vTaskDelay(pdMS_TO_TICKS(10));
 
    }
+}
+
+// HTTP GET handler for root path
+esp_err_t root_handler(httpd_req_t *req) {
+   const char* resp_str = "<html><body><h1>ESP32-S3 WebServer</h1><p>Welcome to ESP32-S3 HTTP Server!</p></body></html>";
+   httpd_resp_send(req, resp_str, HTTPD_RESP_USE_STRLEN);
+   return ESP_OK;
+}
+
+// Start HTTP server
+httpd_handle_t start_webserver(void) {
+   httpd_handle_t server_instance = NULL;
+   httpd_config_t config = HTTPD_DEFAULT_CONFIG();
+   config.lru_purge_enable = true;
+
+   // Start the httpd server
+   ESP_LOGI(LOG_TAG, "Starting HTTP server on port: '%d'", config.server_port);
+   if (httpd_start(&server_instance, &config) == ESP_OK) {
+      // Set URI handlers
+      httpd_uri_t root = {
+         .uri       = "/",
+         .method    = HTTP_GET,
+         .handler   = root_handler,
+         .user_ctx  = NULL
+      };
+      httpd_register_uri_handler(server_instance, &root);
+      return server_instance;
+   }
+
+   ESP_LOGI(LOG_TAG, "Error starting HTTP server!");
+   return NULL;
 }

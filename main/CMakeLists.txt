@@ -11,6 +11,7 @@ idf_component_register(SRCS "main.cpp" "lib/SSD1306/SSD1306.cpp"
                         esp_wifi 
                         esp_netif_stack
                         nvs_flash
+                        esp_http_server
                         Utils
                         wifiManager
                         pinManager
