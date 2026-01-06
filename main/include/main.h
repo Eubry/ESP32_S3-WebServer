@@ -7,5 +7,6 @@
 #include "lwip/err.h"
 #include "lwip/sys.h"
 #include "SSD1306/SSD1306.h"
+#include "wifiManager.h"
 
 using namespace Utils;

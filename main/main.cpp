@@ -16,8 +16,6 @@
 #define LOG_TAG "MAIN"
 #define WIFI_SSID CONFIG_ESP_WIFI_SSID
 #define WIFI_PASS CONFIG_ESP_WIFI_PASSWORD
-//------Task Handles------
-TaskHandle_t DspStatHandle = NULL;
 //------Global Objects------
 OLEDDisplay disp;
 oledParam_t oledParams;
@@ -36,6 +34,7 @@ extern "C" void app_main(void) {
    disp.setLabel("stat", "Init tasks...");
 
    tskMgr.add("Display status", DspStat, NULL, 1, 0, 2000);
+   tskMgr.add("Wifi Connection", DspStat, NULL, 1, 0, 2000);
    
    
 }
