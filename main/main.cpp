@@ -14,14 +14,16 @@
    the config you want - ie #define WIFI_SSID "mywifissid"
 */
 #define LOG_TAG "MAIN"
-#define WIFI_SSID CONFIG_ESP_WIFI_SSID
-#define WIFI_PASS CONFIG_ESP_WIFI_PASSWORD
+#define WIFI_SSID "RE3X4S"//CONFIG_ESP_WIFI_SSID
+#define WIFI_PASS "N1C0L4T3SL4"//CONFIG_ESP_WIFI_PASSWORD
 //------Global Objects------
 OLEDDisplay disp;
 oledParam_t oledParams;
 taskManager tskMgr;
+wifiConnection wConn(WIFI_SSID, WIFI_PASS);
 //------Function Prototypes------
 void DspStat(void *pvParameters);
+void wifi(void *pvParameters);
 //------Main Application------
 extern "C" void app_main(void) {
    oledParams.pinSCL = 13;
@@ -29,12 +31,14 @@ extern "C" void app_main(void) {
 
    disp.begin(oledParams);
    disp.addLabel("stat", 0, 0);
+   disp.addLabel("swifi", 0, 12);
+   disp.addLabel("wstat", 0, 24);
    disp.setLabel("stat", "Program started!");
    vTaskDelay(pdMS_TO_TICKS(500));
    disp.setLabel("stat", "Init tasks...");
-
+   wConn.begin(WIFI_MODE_STA);
    tskMgr.add("Display status", DspStat, NULL, 1, 0, 2000);
-   tskMgr.add("Wifi Connection", DspStat, NULL, 1, 0, 2000);
+   tskMgr.add("Wifi Connection", wifi, NULL, 6, 1, 2000);
    
    
 }
@@ -42,7 +46,18 @@ extern "C" void app_main(void) {
 //------Function Definitions------
 void DspStat(void *pvParameters) {
    while(1) {
-      disp.setLabel("stat", "OLED Started...");
+      disp.setLabel("stat", "OLED Started");
+      vTaskDelay(pdMS_TO_TICKS(1000));
+   }
+}
+void wifi(void *pvParameters) {
+   while(1) {
+      disp.setLabel("swifi", "Wifi Started");
+      if(wConn.isConnected()) {
+         disp.setLabel("wstat", "WiFi Connected");
+      } else {
+         disp.setLabel("wstat", "WiFi Disconnected");
+      }
       vTaskDelay(pdMS_TO_TICKS(1000));
    }
 }
