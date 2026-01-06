@@ -1,0 +1,7 @@
+Command: ninja all
+[1/9] Creating directories for 'bootloader'
+[2/9] C:\WINDOWS\system32\cmd.exe /C "cd /D "C:\Users\eubry\OneDrive\Documents\Programs\Protoboard\ESP32\ESPIDF\S3_Supermini\ESP32_S3 WebServer\main\build" && C:\Espressif\python_env\idf6.0_py3.12_env\Scripts\python.exe C:/Users/eubry/esp/v6.0/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/S3_Supermini/ESP32_S3 WebServer/main/build/partition_table/partition-table.bin" "C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/S3_Supermini/ESP32_S3 WebServer/main/build/IntConn.bin""
+IntConn.bin binary size 0x11ec00 bytes. Smallest app partition is 0x177000 bytes. 0x58400 bytes (24%) free.
+[3/9] No download step for 'bootloader'
+[4/9] No update step for 'bootloader'
+[5/9] No patch step for 'bootloader'

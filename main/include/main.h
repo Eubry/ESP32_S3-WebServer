@@ -7,8 +7,10 @@
 #include "lwip/err.h"
 #include "lwip/sys.h"
 #include <errno.h>
+#include "esp_https_server.h"
 #include "SSD1306/SSD1306.h"
 #include "wifiManager.h"
 #include "pinManager.h"
+#include "server_certs.h"
 
 using namespace Utils;

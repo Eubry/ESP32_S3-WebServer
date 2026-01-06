@@ -1,0 +1,646 @@
+Command: C:\Espressif\python_env\idf6.0_py3.12_env\Scripts\python.exe C:\Users\eubry\esp\v6.0\esp-idf\tools/idf_monitor.py -p COM11 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Users\eubry\OneDrive\Documents\Programs\Protoboard\ESP32\ESPIDF\S3_Supermini\ESP32_S3 WebServer\main\build\IntConn.elf C:\Users\eubry\OneDrive\Documents\Programs\Protoboard\ESP32\ESPIDF\S3_Supermini\ESP32_S3 WebServer\main\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf6.0_py3.12_env\Scripts\python.exe' 'C:\Users\eubry\esp\v6.0\esp-idf\tools\idf.py'
+[0;32mI (119) esp_image: segment 1: paddr=0003a68c vaddr=3fc9a800 sizeESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x2a (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037b4ae
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1588
+load:0x403c8700,len:0xda0
+load:0x403cb700,len:0x2fa0
+entry 0x403c8908
+[0;32mI (24) boot: ESP-IDF v6.0-beta1-1149-gd01bc98339 2nd stage bootloader[0m
+[0;32mI (25) boot: compile time Jan  6 2026 01:38:52[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (27) boot: chip revision: v0.2[0m
+[0;32mI (29) boot: efuse block revision: v1.3[0m
+[0;32mI (33) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (37) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (81) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=2a664h (173668) map[0m
+[0;32mI (119) esp_image: segment 1: paddr=0003a68c vaddr=3fc9a800 size=04d8ch ( 19852) load[0m
+[0;32mI (124) esp_image: segment 2: paddr=0003f420 vaddr=40374000 size=00bf8h (  3064) load[0m
+[0;32mI (125) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=d8d84h (888196) map[0m
+[0;32mI (290) esp_image: segment 4: paddr=00118dac vaddr=40374bf8 size=15b88h ( 88968) load[0m
+[0;32mI (310) esp_image: segment 5: paddr=0012e93c vaddr=50000000 size=00024h (    36) load[0m
+[0;32mI (320) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (320) boot: Disabling RNG early entropy source...[0m
+[0;32mI (331) cpu_start: Multicore app[0m
+[0;32mI (339) cpu_start: GPIO 44 and 43 are used as console UART I/O pins[0m
+[0;32mI (340) cpu_start: Pro cpu start user code[0m
+[0;32mI (340) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (344) app_init: Application information:[0m
+[0;32mI (349) app_init: Project name:     IntConn[0m
+[0;32mI (354) app_init: App version:      e49ec07-dirty[0m
+[0;32mI (359) app_init: Compile time:     Jan  6 2026 02:20:58[0m
+[0;32mI (365) app_init: ELF file SHA256:  b557de468...[0m
+[0;32mI (370) app_init: ESP-IDF:          v6.0-beta1-1149-gd01bc98339[0m
+[0;32mI (377) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (382) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (387) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (392) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (399) heap_init: At 3FCAC518 len 0003D1F8 (244 KiB): RAM[0m
+[0;32mI (405) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (411) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (417) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (425) spi_flash: detected chip: generic[0m
+[0;32mI (428) spi_flash: flash io: dio[0m
+[0;33mW (432) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (446) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (453) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (460) main_task: Started on CPU0[0m
+[0;32mI (470) main_task: Calling app_main()[0m
+[0;32mI (470) OLED: Initialize I2C bus[0m
+[0;32mI (470) OLED: Install panel IO[0m
+[0;32mI (480) OLED: Install SSD1306 panel driver[0m
+[0;32mI (580) OLED: OLED Display initialized successfully[0m
+[0;32mI (580) LVGL: Starting LVGL task[0m
+[0;32mI (1130) wConnection: Hostname set to: ESP32S3WS[0m
+[0;32mI (1130) pp: pp rom version: e7ae62f[0m
+[0;32mI (1130) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1150) wifi:wifi driver task: 3fcbb030, prio:23, stack:6656, core=0[0m
+[0;32mI (1160) wifi:wifi firmware version: 1e45f4e[0m
+[0;32mI (1160) wifi:wifi certification version: v7.0[0m
+[0;32mI (1160) wifi:config NVS flash: enabled[0m
+[0;32mI (1160) wifi:config nano formatting: disabled[0m
+[0;32mI (1160) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1170) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1170) wifi:Init management short buffer num: 32[0m
+[0;32mI (1180) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1180) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1180) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1190) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1190) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1200) wifi_init: rx ba win: 6[0m
+[0;32mI (1200) wifi_init: accept mbox: 6[0m
+[0;32mI (1200) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1210) wifi_init: udp mbox: 6[0m
+[0;32mI (1210) wifi_init: tcp mbox: 6[0m
+[0;32mI (1220) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1220) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1220) wifi_init: tcp mss: 1440[0m
+[0;32mI (1230) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1230) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1250) phy_init: phy_version 711,97bcf0a2,Aug 25 2025,19:04:10[0m
+[0;32mI (1290) wifi:mode : sta (d0:cf:13:2f:64:cc)[0m
+[0;32mI (1300) wifi:enable tsf[0m
+[0;32mI (1300) wConnection: WiFi initialization completed. Attempting to connect to SSID: R3X4S[0m
+[0;32mI (1330) wifi:new:<4,0>, old:<1,0>, ap:<255,255>, sta:<4,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1330) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (2330) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (2380) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (2530) wifi:connected with R3X4S, aid = 20, channel 4, BW20, bssid = 80:3f:5d:73:49:48[0m
+[0;32mI (2530) wifi:security: WPA3-SAE, phy: bgn, rssi: -26[0m
+[0;32mI (2540) wifi:pm start, type: 1[0m
+
+[0;32mI (2540) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (2540) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (2550) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2580) wifi:<ba-add>idx:0 (ifx:0, 80:3f:5d:73:49:48), tid:7, ssn:1, winSize:64[0m
+[0;32mI (2580) wifi:<ba-add>idx:1 (ifx:0, 80:3f:5d:73:49:48), tid:0, ssn:2, winSize:64[0m
+[0;32mI (3580) esp_netif_handlers: sta ip: 192.168.10.64, mask: 255.255.255.0, gw: 192.168.10.254[0m
+[0;32mI (3580) wConnection: Got IP:192.168.10.64[0m
+[0;32mI (3580) mdns_mem: mDNS task will be created from internal RAM[0m
+[0;32mI (3590) wConnection: mDNS hostname published: ESP32S3WS.local[0m
+[0;32mI (3590) wConnection: Connected to WiFi SSID:R3X4S[0m
+[0;32mI (3600) TASK_MANAGER: DisplayStat Task created successfully[0m
+[0;32mI (3600) TASK_MANAGER: WifiConn Task created successfully[0m
+[0;32mI (3610) main_task: Returned from app_main()[0m
+[0;32mI (4110) MAIN: Starting HTTPS server...[0m
+[0;32mI (4110) esp_https_server: Starting server[0m
+[0;31mE (4110) esp_https_server: No Server certificate supplied[0m
+[0;31mE (4120) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (4120) MAIN: Failed to start HTTPS server[0m
+[0;32mI (4610) MAIN: Starting HTTPS server...[0m
+[0;32mI (4610) esp_https_server: Starting server[0m
+[0;31mE (4610) esp_https_server: No Server certificate supplied[0m
+[0;31mE (4620) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (4620) MAIN: Failed to start HTTPS server[0m
+[0;32mI (5110) MAIN: Starting HTTPS server...[0m
+[0;32mI (5110) esp_https_server: Starting server[0m
+[0;31mE (5110) esp_https_server: No Server certificate supplied[0m
+[0;31mE (5120) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (5120) MAIN: Failed to start HTTPS server[0m
+[0;32mI (5620) MAIN: Starting HTTPS server...[0m
+[0;32mI (5620) esp_https_server: Starting server[0m
+[0;31mE (5620) esp_https_server: No Server certificate supplied[0m
+[0;31mE (5630) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (5630) MAIN: Failed to start HTTPS server[0m
+[0;32mI (6130) MAIN: Starting HTTPS server...[0m
+[0;32mI (6130) esp_https_server: Starting server[0m
+[0;31mE (6130) esp_https_server: No Server certificate supplied[0m
+[0;31mE (6140) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (6140) MAIN: Failed to start HTTPS server[0m
+[0;32mI (6640) MAIN: Starting HTTPS server...[0m
+[0;32mI (6640) esp_https_server: Starting server[0m
+[0;31mE (6640) esp_https_server: No Server certificate supplied[0m
+[0;31mE (6650) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (6650) MAIN: Failed to start HTTPS server[0m
+[0;32mI (7140) MAIN: Starting HTTPS server...[0m
+[0;32mI (7140) esp_https_server: Starting server[0m
+[0;31mE (7140) esp_https_server: No Server certificate supplied[0m
+[0;31mE (7150) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (7150) MAIN: Failed to start HTTPS server[0m
+[0;32mI (7640) MAIN: Starting HTTPS server...[0m
+[0;32mI (7640) esp_https_server: Starting server[0m
+[0;31mE (7640) esp_https_server: No Server certificate supplied[0m
+[0;31mE (7650) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (7650) MAIN: Failed to start HTTPS server[0m
+[0;32mI (8140) MAIN: Starting HTTPS server...[0m
+[0;32mI (8140) esp_https_server: Starting server[0m
+[0;31mE (8140) esp_https_server: No Server certificate supplied[0m
+[0;31mE (8150) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (8150) MAIN: Failed to start HTTPS server[0m
+[0;32mI (8640) MAIN: Starting HTTPS server...[0m
+[0;32mI (8640) esp_https_server: Starting server[0m
+[0;31mE (8640) esp_https_server: No Server certificate supplied[0m
+[0;31mE (8650) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (8650) MAIN: Failed to start HTTPS server[0m
+[0;32mI (9150) MAIN: Starting HTTPS server...[0m
+[0;32mI (9150) esp_https_server: Starting server[0m
+[0;31mE (9150) esp_https_server: No Server certificate supplied[0m
+[0;31mE (9160) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (9160) MAIN: Failed to start HTTPS server[0m
+[0;32mI (9650) MAIN: Starting HTTPS server...[0m
+[0;32mI (9650) esp_https_server: Starting server[0m
+[0;31mE (9650) esp_https_server: No Server certificate supplied[0m
+[0;31mE (9660) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (9660) MAIN: Failed to start HTTPS server[0m
+[0;32mI (10150) MAIN: Starting HTTPS server...[0m
+[0;32mI (10150) esp_https_server: Starting server[0m
+[0;31mE (10150) esp_https_server: No Server certificate supplied[0m
+[0;31mE (10160) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (10160) MAIN: Failed to start HTTPS server[0m
+[0;32mI (10650) MAIN: Starting HTTPS server...[0m
+[0;32mI (10650) esp_https_server: Starting server[0m
+[0;31mE (10650) esp_https_server: No Server certificate supplied[0m
+[0;31mE (10660) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (10660) MAIN: Failed to start HTTPS server[0m
+[0;32mI (11160) MAIN: Starting HTTPS server...[0m
+[0;32mI (11160) esp_https_server: Starting server[0m
+[0;31mE (11160) esp_https_server: No Server certificate supplied[0m
+[0;31mE (11170) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (11170) MAIN: Failed to start HTTPS server[0m
+[0;32mI (11660) MAIN: Starting HTTPS server...[0m
+[0;32mI (11660) esp_https_server: Starting server[0m
+[0;31mE (11660) esp_https_server: No Server certificate supplied[0m
+[0;31mE (11670) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (11670) MAIN: Failed to start HTTPS server[0m
+[0;32mI (12170) MAIN: Starting HTTPS server...[0m
+[0;32mI (12170) esp_https_server: Starting server[0m
+[0;31mE (12170) esp_https_server: No Server certificate supplied[0m
+[0;31mE (12180) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (12180) MAIN: Failed to start HTTPS server[0m
+[0;32mI (12670) MAIN: Starting HTTPS server...[0m
+[0;32mI (12670) esp_https_server: Starting server[0m
+[0;31mE (12670) esp_https_server: No Server certificate supplied[0m
+[0;31mE (12680) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (12680) MAIN: Failed to start HTTPS server[0m
+[0;32mI (13170) MAIN: Starting HTTPS server...[0m
+[0;32mI (13170) esp_https_server: Starting server[0m
+[0;31mE (13170) esp_https_server: No Server certificate supplied[0m
+[0;31mE (13180) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (13180) MAIN: Failed to start HTTPS server[0m
+[0;32mI (13670) MAIN: Starting HTTPS server...[0m
+[0;32mI (13670) esp_https_server: Starting server[0m
+[0;31mE (13670) esp_https_server: No Server certificate supplied[0m
+[0;31mE (13680) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (13680) MAIN: Failed to start HTTPS server[0m
+[0;32mI (14170) MAIN: Starting HTTPS server...[0m
+[0;32mI (14170) esp_https_server: Starting server[0m
+[0;31mE (14170) esp_https_server: No Server certificate supplied[0m
+[0;31mE (14180) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (14180) MAIN: Failed to start HTTPS server[0m
+[0;32mI (14670) MAIN: Starting HTTPS server...[0m
+[0;32mI (14670) esp_https_server: Starting server[0m
+[0;31mE (14670) esp_https_server: No Server certificate supplied[0m
+[0;31mE (14680) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (14680) MAIN: Failed to start HTTPS server[0m
+[0;32mI (15170) MAIN: Starting HTTPS server...[0m
+[0;32mI (15170) esp_https_server: Starting server[0m
+[0;31mE (15170) esp_https_server: No Server certificate supplied[0m
+[0;31mE (15180) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (15180) MAIN: Failed to start HTTPS server[0m
+[0;32mI (15670) MAIN: Starting HTTPS server...[0m
+[0;32mI (15670) esp_https_server: Starting server[0m
+[0;31mE (15670) esp_https_server: No Server certificate supplied[0m
+[0;31mE (15680) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (15680) MAIN: Failed to start HTTPS server[0m
+[0;32mI (16170) MAIN: Starting HTTPS server...[0m
+[0;32mI (16170) esp_https_server: Starting server[0m
+[0;31mE (16170) esp_https_server: No Server certificate supplied[0m
+[0;31mE (16180) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (16180) MAIN: Failed to start HTTPS server[0m
+[0;32mI (16680) MAIN: Starting HTTPS server...[0m
+[0;32mI (16680) esp_https_server: Starting server[0m
+[0;31mE (16680) esp_https_server: No Server certificate supplied[0m
+[0;31mE (16690) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (16690) MAIN: Failed to start HTTPS server[0m
+[0;32mI (17190) MAIN: Starting HTTPS server...[0m
+[0;32mI (17190) esp_https_server: Starting server[0m
+[0;31mE (17190) esp_https_server: No Server certificate supplied[0m
+[0;31mE (17200) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (17200) MAIN: Failed to start HTTPS server[0m
+[0;32mI (17690) MAIN: Starting HTTPS server...[0m
+[0;32mI (17690) esp_https_server: Starting server[0m
+[0;31mE (17690) esp_https_server: No Server certificate supplied[0m
+[0;31mE (17700) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (17700) MAIN: Failed to start HTTPS server[0m
+[0;32mI (18190) MAIN: Starting HTTPS server...[0m
+[0;32mI (18190) esp_https_server: Starting server[0m
+[0;31mE (18190) esp_https_server: No Server certificate supplied[0m
+[0;31mE (18200) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (18200) MAIN: Failed to start HTTPS server[0m
+[0;32mI (18690) MAIN: Starting HTTPS server...[0m
+[0;32mI (18690) esp_https_server: Starting server[0m
+[0;31mE (18690) esp_https_server: No Server certificate supplied[0m
+[0;31mE (18700) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (18700) MAIN: Failed to start HTTPS server[0m
+[0;32mI (19190) MAIN: Starting HTTPS server...[0m
+[0;32mI (19190) esp_https_server: Starting server[0m
+[0;31mE (19190) esp_https_server: No Server certificate supplied[0m
+[0;31mE (19200) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (19200) MAIN: Failed to start HTTPS server[0m
+[0;32mI (19690) MAIN: Starting HTTPS server...[0m
+[0;32mI (19690) esp_https_server: Starting server[0m
+[0;31mE (19690) esp_https_server: No Server certificate supplied[0m
+[0;31mE (19700) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (19700) MAIN: Failed to start HTTPS server[0m
+[0;32mI (20190) MAIN: Starting HTTPS server...[0m
+[0;32mI (20190) esp_https_server: Starting server[0m
+[0;31mE (20190) esp_https_server: No Server certificate supplied[0m
+[0;31mE (20200) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (20200) MAIN: Failed to start HTTPS server[0m
+[0;32mI (20690) MAIN: Starting HTTPS server...[0m
+[0;32mI (20690) esp_https_server: Starting server[0m
+[0;31mE (20690) esp_https_server: No Server certificate supplied[0m
+[0;31mE (20700) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (20700) MAIN: Failed to start HTTPS server[0m
+[0;32mI (21190) MAIN: Starting HTTPS server...[0m
+[0;32mI (21190) esp_https_server: Starting server[0m
+[0;31mE (21190) esp_https_server: No Server certificate supplied[0m
+[0;31mE (21200) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (21200) MAIN: Failed to start HTTPS server[0m
+[0;32mI (21700) MAIN: Starting HTTPS server...[0m
+[0;32mI (21700) esp_https_server: Starting server[0m
+[0;31mE (21700) esp_https_server: No Server certificate supplied[0m
+[0;31mE (21710) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (21710) MAIN: Failed to start HTTPS server[0m
+[0;32mI (22210) MAIN: Starting HTTPS server...[0m
+[0;32mI (22210) esp_https_server: Starting server[0m
+[0;31mE (22210) esp_https_server: No Server certificate supplied[0m
+[0;31mE (22220) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (22220) MAIN: Failed to start HTTPS server[0m
+[0;32mI (22720) MAIN: Starting HTTPS server...[0m
+[0;32mI (22720) esp_https_server: Starting server[0m
+[0;31mE (22720) esp_https_server: No Server certificate supplied[0m
+[0;31mE (22730) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (22730) MAIN: Failed to start HTTPS server[0m
+[0;32mI (23220) MAIN: Starting HTTPS server...[0m
+[0;32mI (23220) esp_https_server: Starting server[0m
+[0;31mE (23220) esp_https_server: No Server certificate supplied[0m
+[0;31mE (23230) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (23230) MAIN: Failed to start HTTPS server[0m
+[0;32mI (23720) MAIN: Starting HTTPS server...[0m
+[0;32mI (23720) esp_https_server: Starting server[0m
+[0;31mE (23720) esp_https_server: No Server certificate supplied[0m
+[0;31mE (23730) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (23730) MAIN: Failed to start HTTPS server[0m
+[0;32mI (24220) MAIN: Starting HTTPS server...[0m
+[0;32mI (24220) esp_https_server: Starting server[0m
+[0;31mE (24220) esp_https_server: No Server certificate supplied[0m
+[0;31mE (24230) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (24230) MAIN: Failed to start HTTPS server[0m
+[0;32mI (24720) MAIN: Starting HTTPS server...[0m
+[0;32mI (24720) esp_https_server: Starting server[0m
+[0;31mE (24720) esp_https_server: No Server certificate supplied[0m
+[0;31mE (24730) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (24730) MAIN: Failed to start HTTPS server[0m
+[0;32mI (25220) MAIN: Starting HTTPS server...[0m
+[0;32mI (25220) esp_https_server: Starting server[0m
+[0;31mE (25220) esp_https_server: No Server certificate supplied[0m
+[0;31mE (25230) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (25230) MAIN: Failed to start HTTPS server[0m
+[0;32mI (25720) MAIN: Starting HTTPS server...[0m
+[0;32mI (25720) esp_https_server: Starting server[0m
+[0;31mE (25720) esp_https_server: No Server certificate supplied[0m
+[0;31mE (25730) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (25730) MAIN: Failed to start HTTPS server[0m
+[0;32mI (26220) MAIN: Starting HTTPS server...[0m
+[0;32mI (26220) esp_https_server: Starting server[0m
+[0;31mE (26220) esp_https_server: No Server certificate supplied[0m
+[0;31mE (26230) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (26230) MAIN: Failed to start HTTPS server[0m
+[0;32mI (26720) MAIN: Starting HTTPS server...[0m
+[0;32mI (26720) esp_https_server: Starting server[0m
+[0;31mE (26720) esp_https_server: No Server certificate supplied[0m
+[0;31mE (26730) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (26730) MAIN: Failed to start HTTPS server[0m
+[0;32mI (27230) MAIN: Starting HTTPS server...[0m
+[0;32mI (27230) esp_https_server: Starting server[0m
+[0;31mE (27230) esp_https_server: No Server certificate supplied[0m
+[0;31mE (27240) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (27240) MAIN: Failed to start HTTPS server[0m
+[0;32mI (27740) MAIN: Starting HTTPS server...[0m
+[0;32mI (27740) esp_https_server: Starting server[0m
+[0;31mE (27740) esp_https_server: No Server certificate supplied[0m
+[0;31mE (27740) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (27750) MAIN: Failed to start HTTPS server[0m
+[0;32mI (28240) MAIN: Starting HTTPS server...[0m
+[0;32mI (28240) esp_https_server: Starting server[0m
+[0;31mE (28240) esp_https_server: No Server certificate supplied[0m
+[0;31mE (28250) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (28250) MAIN: Failed to start HTTPS server[0m
+[0;32mI (28750) MAIN: Starting HTTPS server...[0m
+[0;32mI (28750) esp_https_server: Starting server[0m
+[0;31mE (28750) esp_https_server: No Server certificate supplied[0m
+[0;31mE (28760) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (28760) MAIN: Failed to start HTTPS server[0m
+[0;32mI (29250) MAIN: Starting HTTPS server...[0m
+[0;32mI (29250) esp_https_server: Starting server[0m
+[0;31mE (29250) esp_https_server: No Server certificate supplied[0m
+[0;31mE (29260) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (29260) MAIN: Failed to start HTTPS server[0m
+[0;32mI (29750) MAIN: Starting HTTPS server...[0m
+[0;32mI (29750) esp_https_server: Starting server[0m
+[0;31mE (29750) esp_https_server: No Server certificate supplied[0m
+[0;31mE (29760) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (29760) MAIN: Failed to start HTTPS server[0m
+[0;32mI (30250) MAIN: Starting HTTPS server...[0m
+[0;32mI (30250) esp_https_server: Starting server[0m
+[0;31mE (30250) esp_https_server: No Server certificate supplied[0m
+[0;31mE (30260) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (30260) MAIN: Failed to start HTTPS server[0m
+[0;32mI (30750) MAIN: Starting HTTPS server...[0m
+[0;32mI (30750) esp_https_server: Starting server[0m
+[0;31mE (30750) esp_https_server: No Server certificate supplied[0m
+[0;31mE (30760) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (30760) MAIN: Failed to start HTTPS server[0m
+[0;32mI (31250) MAIN: Starting HTTPS server...[0m
+[0;32mI (31250) esp_https_server: Starting server[0m
+[0;31mE (31250) esp_https_server: No Server certificate supplied[0m
+[0;31mE (31260) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (31260) MAIN: Failed to start HTTPS server[0m
+[0;32mI (31750) MAIN: Starting HTTPS server...[0m
+[0;32mI (31750) esp_https_server: Starting server[0m
+[0;31mE (31750) esp_https_server: No Server certificate supplied[0m
+[0;31mE (31760) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (31760) MAIN: Failed to start HTTPS server[0m
+[0;32mI (32250) MAIN: Starting HTTPS server...[0m
+[0;32mI (32250) esp_https_server: Starting server[0m
+[0;31mE (32250) esp_https_server: No Server certificate supplied[0m
+[0;31mE (32260) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (32260) MAIN: Failed to start HTTPS server[0m
+[0;32mI (32760) MAIN: Starting HTTPS server...[0m
+[0;32mI (32760) esp_https_server: Starting server[0m
+[0;31mE (32760) esp_https_server: No Server certificate supplied[0m
+[0;31mE (32770) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (32770) MAIN: Failed to start HTTPS server[0m
+[0;32mI (33270) MAIN: Starting HTTPS server...[0m
+[0;32mI (33270) esp_https_server: Starting server[0m
+[0;31mE (33270) esp_https_server: No Server certificate supplied[0m
+[0;31mE (33280) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (33280) MAIN: Failed to start HTTPS server[0m
+[0;32mI (33780) MAIN: Starting HTTPS server...[0m
+[0;32mI (33780) esp_https_server: Starting server[0m
+[0;31mE (33780) esp_https_server: No Server certificate supplied[0m
+[0;31mE (33790) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (33790) MAIN: Failed to start HTTPS server[0m
+[0;32mI (34290) MAIN: Starting HTTPS server...[0m
+[0;32mI (34290) esp_https_server: Starting server[0m
+[0;31mE (34290) esp_https_server: No Server certificate supplied[0m
+[0;31mE (34300) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (34300) MAIN: Failed to start HTTPS server[0m
+[0;32mI (34800) MAIN: Starting HTTPS server...[0m
+[0;32mI (34800) esp_https_server: Starting server[0m
+[0;31mE (34800) esp_https_server: No Server certificate supplied[0m
+[0;31mE (34810) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (34810) MAIN: Failed to start HTTPS server[0m
+[0;32mI (35300) MAIN: Starting HTTPS server...[0m
+[0;32mI (35300) esp_https_server: Starting server[0m
+[0;31mE (35300) esp_https_server: No Server certificate supplied[0m
+[0;31mE (35310) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (35310) MAIN: Failed to start HTTPS server[0m
+[0;32mI (35800) MAIN: Starting HTTPS server...[0m
+[0;32mI (35800) esp_https_server: Starting server[0m
+[0;31mE (35800) esp_https_server: No Server certificate supplied[0m
+[0;31mE (35810) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (35810) MAIN: Failed to start HTTPS server[0m
+[0;32mI (36300) MAIN: Starting HTTPS server...[0m
+[0;32mI (36300) esp_https_server: Starting server[0m
+[0;31mE (36300) esp_https_server: No Server certificate supplied[0m
+[0;31mE (36310) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (36310) MAIN: Failed to start HTTPS server[0m
+[0;32mI (36800) MAIN: Starting HTTPS server...[0m
+[0;32mI (36800) esp_https_server: Starting server[0m
+[0;31mE (36800) esp_https_server: No Server certificate supplied[0m
+[0;31mE (36810) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (36810) MAIN: Failed to start HTTPS server[0m
+[0;32mI (37300) MAIN: Starting HTTPS server...[0m
+[0;32mI (37300) esp_https_server: Starting server[0m
+[0;31mE (37300) esp_https_server: No Server certificate supplied[0m
+[0;31mE (37310) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (37310) MAIN: Failed to start HTTPS server[0m
+[0;32mI (37800) MAIN: Starting HTTPS server...[0m
+[0;32mI (37800) esp_https_server: Starting server[0m
+[0;31mE (37800) esp_https_server: No Server certificate supplied[0m
+[0;31mE (37810) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (37810) MAIN: Failed to start HTTPS server[0m
+[0;32mI (38300) MAIN: Starting HTTPS server...[0m
+[0;32mI (38300) esp_https_server: Starting server[0m
+[0;31mE (38300) esp_https_server: No Server certificate supplied[0m
+[0;31mE (38310) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (38310) MAIN: Failed to start HTTPS server[0m
+[0;32mI (38800) MAIN: Starting HTTPS server...[0m
+[0;32mI (38800) esp_https_server: Starting server[0m
+[0;31mE (38800) esp_https_server: No Server certificate supplied[0m
+[0;31mE (38810) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (38810) MAIN: Failed to start HTTPS server[0m
+[0;32mI (39310) MAIN: Starting HTTPS server...[0m
+[0;32mI (39310) esp_https_server: Starting server[0m
+[0;31mE (39310) esp_https_server: No Server certificate supplied[0m
+[0;31mE (39320) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (39320) MAIN: Failed to start HTTPS server[0m
+[0;32mI (39820) MAIN: Starting HTTPS server...[0m
+[0;32mI (39820) esp_https_server: Starting server[0m
+[0;31mE (39820) esp_https_server: No Server certificate supplied[0m
+[0;31mE (39830) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (39830) MAIN: Failed to start HTTPS server[0m
+[0;32mI (40320) MAIN: Starting HTTPS server...[0m
+[0;32mI (40320) esp_https_server: Starting server[0m
+[0;31mE (40320) esp_https_server: No Server certificate supplied[0m
+[0;31mE (40330) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (40330) MAIN: Failed to start HTTPS server[0m
+[0;32mI (40820) MAIN: Starting HTTPS server...[0m
+[0;32mI (40820) esp_https_server: Starting server[0m
+[0;31mE (40820) esp_https_server: No Server certificate supplied[0m
+[0;31mE (40830) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (40830) MAIN: Failed to start HTTPS server[0m
+[0;32mI (41320) MAIN: Starting HTTPS server...[0m
+[0;32mI (41320) esp_https_server: Starting server[0m
+[0;31mE (41320) esp_https_server: No Server certificate supplied[0m
+[0;31mE (41330) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (41330) MAIN: Failed to start HTTPS server[0m
+[0;32mI (41820) MAIN: Starting HTTPS server...[0m
+[0;32mI (41820) esp_https_server: Starting server[0m
+[0;31mE (41820) esp_https_server: No Server certificate supplied[0m
+[0;31mE (41830) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (41830) MAIN: Failed to start HTTPS server[0m
+[0;32mI (42320) MAIN: Starting HTTPS server...[0m
+[0;32mI (42320) esp_https_server: Starting server[0m
+[0;31mE (42320) esp_https_server: No Server certificate supplied[0m
+[0;31mE (42330) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (42330) MAIN: Failed to start HTTPS server[0m
+[0;32mI (42820) MAIN: Starting HTTPS server...[0m
+[0;32mI (42820) esp_https_server: Starting server[0m
+[0;31mE (42820) esp_https_server: No Server certificate supplied[0m
+[0;31mE (42830) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (42830) MAIN: Failed to start HTTPS server[0m
+[0;32mI (43320) MAIN: Starting HTTPS server...[0m
+[0;32mI (43320) esp_https_server: Starting server[0m
+[0;31mE (43320) esp_https_server: No Server certificate supplied[0m
+[0;31mE (43330) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (43330) MAIN: Failed to start HTTPS server[0m
+[0;32mI (43820) MAIN: Starting HTTPS server...[0m
+[0;32mI (43820) esp_https_server: Starting server[0m
+[0;31mE (43820) esp_https_server: No Server certificate supplied[0m
+[0;31mE (43830) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (43830) MAIN: Failed to start HTTPS server[0m
+[0;32mI (44330) MAIN: Starting HTTPS server...[0m
+[0;32mI (44330) esp_https_server: Starting server[0m
+[0;31mE (44330) esp_https_server: No Server certificate supplied[0m
+[0;31mE (44340) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (44340) MAIN: Failed to start HTTPS server[0m
+[0;32mI (44840) MAIN: Starting HTTPS server...[0m
+[0;32mI (44840) esp_https_server: Starting server[0m
+[0;31mE (44840) esp_https_server: No Server certificate supplied[0m
+[0;31mE (44850) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (44850) MAIN: Failed to start HTTPS server[0m
+[0;32mI (45340) MAIN: Starting HTTPS server...[0m
+[0;32mI (45340) esp_https_server: Starting server[0m
+[0;31mE (45340) esp_https_server: No Server certificate supplied[0m
+[0;31mE (45350) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (45350) MAIN: Failed to start HTTPS server[0m
+[0;32mI (45840) MAIN: Starting HTTPS server...[0m
+[0;32mI (45840) esp_https_server: Starting server[0m
+[0;31mE (45840) esp_https_server: No Server certificate supplied[0m
+[0;31mE (45850) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (45850) MAIN: Failed to start HTTPS server[0m
+[0;32mI (46340) MAIN: Starting HTTPS server...[0m
+[0;32mI (46340) esp_https_server: Starting server[0m
+[0;31mE (46340) esp_https_server: No Server certificate supplied[0m
+[0;31mE (46350) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (46350) MAIN: Failed to start HTTPS server[0m
+[0;32mI (46840) MAIN: Starting HTTPS server...[0m
+[0;32mI (46840) esp_https_server: Starting server[0m
+[0;31mE (46840) esp_https_server: No Server certificate supplied[0m
+[0;31mE (46850) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (46850) MAIN: Failed to start HTTPS server[0m
+[0;32mI (47340) MAIN: Starting HTTPS server...[0m
+[0;32mI (47340) esp_https_server: Starting server[0m
+[0;31mE (47340) esp_https_server: No Server certificate supplied[0m
+[0;31mE (47350) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (47350) MAIN: Failed to start HTTPS server[0m
+[0;32mI (47840) MAIN: Starting HTTPS server...[0m
+[0;32mI (47840) esp_https_server: Starting server[0m
+[0;31mE (47840) esp_https_server: No Server certificate supplied[0m
+[0;31mE (47850) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (47850) MAIN: Failed to start HTTPS server[0m
+[0;32mI (48340) MAIN: Starting HTTPS server...[0m
+[0;32mI (48340) esp_https_server: Starting server[0m
+[0;31mE (48340) esp_https_server: No Server certificate supplied[0m
+[0;31mE (48350) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (48350) MAIN: Failed to start HTTPS server[0m
+[0;32mI (48840) MAIN: Starting HTTPS server...[0m
+[0;32mI (48840) esp_https_server: Starting server[0m
+[0;31mE (48840) esp_https_server: No Server certificate supplied[0m
+[0;31mE (48850) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (48850) MAIN: Failed to start HTTPS server[0m
+[0;32mI (49350) MAIN: Starting HTTPS server...[0m
+[0;32mI (49350) esp_https_server: Starting server[0m
+[0;31mE (49350) esp_https_server: No Server certificate supplied[0m
+[0;31mE (49350) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (49360) MAIN: Failed to start HTTPS server[0m
+[0;32mI (49850) MAIN: Starting HTTPS server...[0m
+[0;32mI (49850) esp_https_server: Starting server[0m
+[0;31mE (49850) esp_https_server: No Server certificate supplied[0m
+[0;31mE (49860) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (49860) MAIN: Failed to start HTTPS server[0m
+[0;32mI (50350) MAIN: Starting HTTPS server...[0m
+[0;32mI (50350) esp_https_server: Starting server[0m
+[0;31mE (50350) esp_https_server: No Server certificate supplied[0m
+[0;31mE (50360) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (50360) MAIN: Failed to start HTTPS server[0m
+[0;32mI (50850) MAIN: Starting HTTPS server...[0m
+[0;32mI (50850) esp_https_server: Starting server[0m
+[0;31mE (50850) esp_https_server: No Server certificate supplied[0m
+[0;31mE (50860) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (50860) MAIN: Failed to start HTTPS server[0m
+[0;32mI (51350) MAIN: Starting HTTPS server...[0m
+[0;32mI (51350) esp_https_server: Starting server[0m
+[0;31mE (51350) esp_https_server: No Server certificate supplied[0m
+[0;31mE (51360) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (51360) MAIN: Failed to start HTTPS server[0m
+[0;32mI (51850) MAIN: Starting HTTPS server...[0m
+[0;32mI (51850) esp_https_server: Starting server[0m
+[0;31mE (51850) esp_https_server: No Server certificate supplied[0m
+[0;31mE (51860) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (51860) MAIN: Failed to start HTTPS server[0m
+[0;32mI (52350) MAIN: Starting HTTPS server...[0m
+[0;32mI (52350) esp_https_server: Starting server[0m
+[0;31mE (52350) esp_https_server: No Server certificate supplied[0m
+[0;31mE (52360) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (52360) MAIN: Failed to start HTTPS server[0m
+[0;32mI (52850) MAIN: Starting HTTPS server...[0m
+[0;32mI (52850) esp_https_server: Starting server[0m
+[0;31mE (52850) esp_https_server: No Server certificate supplied[0m
+[0;31mE (52860) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (52860) MAIN: Failed to start HTTPS server[0m
+[0;32mI (53350) MAIN: Starting HTTPS server...[0m
+[0;32mI (53350) esp_https_server: Starting server[0m
+[0;31mE (53350) esp_https_server: No Server certificate supplied[0m
+[0;31mE (53360) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (53360) MAIN: Failed to start HTTPS server[0m
+[0;32mI (53860) MAIN: Starting HTTPS server...[0m
+[0;32mI (53860) esp_https_server: Starting server[0m
+[0;31mE (53860) esp_https_server: No Server certificate supplied[0m
+[0;31mE (53870) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (53870) MAIN: Failed to start HTTPS server[0m
+[0;32mI (54360) MAIN: Starting HTTPS server...[0m
+[0;32mI (54360) esp_https_server: Starting server[0m
+[0;31mE (54360) esp_https_server: No Server certificate supplied[0m
+[0;31mE (54370) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (54370) MAIN: Failed to start HTTPS server[0m
+[0;32mI (54870) MAIN: Starting HTTPS server...[0m
+[0;32mI (54870) esp_https_server: Starting server[0m
+[0;31mE (54870) esp_https_server: No Server certificate supplied[0m
+[0;31mE (54880) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (54880) MAIN: Failed to start HTTPS server[0m
+[0;32mI (55370) MAIN: Starting HTTPS server...[0m
+[0;32mI (55370) esp_https_server: Starting server[0m
+[0;31mE (55370) esp_https_server: No Server certificate supplied[0m
+[0;31mE (55380) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (55380) MAIN: Failed to start HTTPS server[0m
+[0;32mI (55870) MAIN: Starting HTTPS server...[0m
+[0;32mI (55870) esp_https_server: Starting server[0m
+[0;31mE (55870) esp_https_server: No Server certificate supplied[0m
+[0;31mE (55880) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (55880) MAIN: Failed to start HTTPS server[0m
+[0;32mI (56370) MAIN: Starting HTTPS server...[0m
+[0;32mI (56370) esp_https_server: Starting server[0m
+[0;31mE (56370) esp_https_server: No Server certificate supplied[0m
+[0;31mE (56380) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (56380) MAIN: Failed to start HTTPS server[0m
+[0;32mI (56870) MAIN: Starting HTTPS server...[0m
+[0;32mI (56870) esp_https_server: Starting server[0m
+[0;31mE (56870) esp_https_server: No Server certificate supplied[0m
+[0;31mE (56880) MAIN: Error starting HTTPS server: ESP_ERR_INVALID_ARG[0m
+[0;31mE (56880) MAIN: Failed to start HTTPS server[0m
+[
