@@ -9,5 +9,6 @@
 #include <errno.h>
 #include "SSD1306/SSD1306.h"
 #include "wifiManager.h"
+#include "pinManager.h"
 
 using namespace Utils;
