@@ -20,7 +20,7 @@
 OLEDDisplay disp;
 oledParam_t oledParams;
 taskManager tskMgr;
-wifiConnection wConn(WIFI_SSID, WIFI_PASS);
+wifiConnection wConn(WIFI_SSID, WIFI_PASS,5,"ESP32S3WS");
 //------Function Prototypes------
 void DspStat(void *pvParameters);
 void wifi(void *pvParameters);
@@ -51,6 +51,7 @@ extern "C" void app_main(void) {
 //------Function Definitions------
 void DspStat(void *pvParameters) {
    // Small delay to ensure task is registered before calling resetWatchdog
+   vTaskDelay(pdMS_TO_TICKS(100));
    while(1) {
       disp.setLabel("stat", "OLED Started");
       tskMgr.resetWatchdog("DisplayStat");
@@ -58,7 +59,6 @@ void DspStat(void *pvParameters) {
    }
 }
 void wifi(void *pvParameters) {
-   // Small delay to ensure task is registered before calling resetWatchdog
    static cTime rwdt;
    static cTime upt;
    while(1) {
@@ -68,6 +68,7 @@ void wifi(void *pvParameters) {
          disp.setLabel("swifi", "Wifi Started");
          if(wConn.isConnected()) {
             disp.setLabel("wstat", wConn.getIp().c_str());
+            disp.setLabel("outloop", wConn.getHostname().c_str());
          } else {
             disp.setLabel("wstat", "WiFi Disconnected");
          }
