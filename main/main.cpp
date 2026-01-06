@@ -33,34 +33,53 @@ extern "C" void app_main(void) {
    disp.addLabel("stat", 0, 0);
    disp.addLabel("swifi", 0, 12);
    disp.addLabel("wstat", 0, 24);
+   disp.addLabel("outloop", 0, 36);
    disp.setLabel("stat", "Program started!");
-   disp.setLabel("swifi", "");
-   disp.setLabel("wstat", "");
+   disp.setLabel("swifi", "-");
+   disp.setLabel("wstat", "-");
+   disp.setLabel("outloop", "-");
+
    vTaskDelay(pdMS_TO_TICKS(500));
    disp.setLabel("stat", "Init tasks...");
    wConn.begin(WIFI_MODE_STA);
-   tskMgr.add("Display status", DspStat, NULL, 1, 0, 2000);
-   tskMgr.add("Wifi Connection", wifi, NULL, 6, 1, 2000);
+   tskMgr.add("DisplayStat", DspStat, NULL, 1, 0, 4096);
+   tskMgr.add("WifiConn", wifi, NULL, 6, 1, 4096);
    
    
 }
 
 //------Function Definitions------
 void DspStat(void *pvParameters) {
+   // Small delay to ensure task is registered before calling resetWatchdog
    while(1) {
       disp.setLabel("stat", "OLED Started");
+      tskMgr.resetWatchdog("DisplayStat");
       vTaskDelay(pdMS_TO_TICKS(1000));
    }
 }
 void wifi(void *pvParameters) {
+   // Small delay to ensure task is registered before calling resetWatchdog
+   static cTime rwdt;
+   static cTime upt;
    while(1) {
-      disp.setLabel("swifi", "Wifi Started");
-      if(wConn.isConnected()) {
-         disp.setLabel("wstat", wConn.getIp().c_str());
-      } else {
-         disp.setLabel("wstat", "WiFi Disconnected");
+      // Update WiFi status display
+      upt.wait(500000); // 500000 microseconds = 0.5 seconds
+      if(upt.finish()) {
+         disp.setLabel("swifi", "Wifi Started");
+         if(wConn.isConnected()) {
+            disp.setLabel("wstat", wConn.getIp().c_str());
+         } else {
+            disp.setLabel("wstat", "WiFi Disconnected");
+         }
       }
-      vTaskDelay(pdMS_TO_TICKS(1000));
+      rwdt.wait(4000000); // 4000000 microseconds = 4 seconds
+      if(rwdt.finish()) {
+         // Reset watchdog every loop iteration to prevent timeout
+         tskMgr.resetWatchdog("WifiConn");
+      }
+      
+      vTaskDelay(pdMS_TO_TICKS(10));
+
    }
 }
 //Testing GitHub commit
