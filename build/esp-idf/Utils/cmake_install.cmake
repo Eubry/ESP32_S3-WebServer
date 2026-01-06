@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/Libraries/ESP-IDF/libraries/Utils
+# Install script for directory: C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/S3_Supermini/ESP32_S3 WebServer/main/components/DevLib/ESP-IDF/libraries/Utils
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

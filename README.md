@@ -26,12 +26,38 @@ A comprehensive ESP32-S3 project that connects to a WiFi network, starts a web s
 - ESP-IDF v6.0 or later
 - Python 3.12+
 - CMake 3.16+
+- Git (for submodule management)
+
+## Getting Started
+
+### Clone the Repository
+
+Clone the repository with all submodules:
+
+```bash
+git clone --recurse-submodules https://github.com/Eubry/ESP32_S3-WebServer.git
+cd ESP32_S3-WebServer/main
+```
+
+If you already cloned without submodules, initialize them:
+
+```bash
+git submodule update --init --recursive
+```
 
 ## Project Structure
 
 ```
+├── .gitmodules                 # Git submodule configuration
 ├── CMakeLists.txt              # Root project configuration
 ├── sdkconfig                   # ESP-IDF configuration
+├── components/
+│   └── DevLib/                 # Git submodule: Development Board Libraries
+│       ├── Common/libraries/   # Platform-agnostic libraries
+│       │   ├── Counter/        # Counter implementation
+│       │   └── Utils/          # Common utilities
+│       └── ESP-IDF/libraries/  # ESP-IDF specific libraries
+│           └── Utils/          # ESP32 task manager & utilities
 ├── main/
 │   ├── CMakeLists.txt          # Main component configuration
 │   ├── main.cpp                # Application entry point
@@ -49,20 +75,48 @@ A comprehensive ESP32-S3 project that connects to a WiFi network, starts a web s
 
 ## External Libraries
 
-This project uses external component libraries located at:
-- `C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/Libraries/Common/libraries`
-- `C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/Libraries/ESP-IDF/libraries`
+This project uses external component libraries via git submodule from the [DevLib-DevelopmentBoardLibraries](https://github.com/Eubry/DevLib-DevelopmentBoardLibraries) repository.
 
-### Utils Library
-Custom utility library providing:
-- **taskManager**: FreeRTOS task management with watchdog integration
-  - `add()`: Create and register tasks with watchdog
-  - `del()`: Delete tasks and cleanup
-  - `resetWatchdog()`: Reset watchdog timer for tasks
-- **Helper Functions**: Template-based map utilities
+### Common Libraries
+Platform-agnostic libraries located at `components/DevLib/Common/libraries/`:
 
-### Counter Library
+#### Counter Library
 Custom counter implementation for event tracking and statistics.
+- Thread-safe counter operations
+- Multiple counter instances
+- Reset and increment functionality
+
+#### Utils Library
+Common utility functions for general development.
+- Template-based helper functions
+- Data structure utilities
+
+### ESP-IDF Libraries
+ESP32-specific libraries located at `components/DevLib/ESP-IDF/libraries/`:
+
+#### Utils Library
+ESP-IDF specific utility library providing:
+- **taskManager**: FreeRTOS task management with watchdog integration
+  - `add(name, taskFunc, param, priority, core, stackSize)`: Create and register tasks with automatic watchdog enrollment
+  - `del(name)`: Delete tasks and cleanup watchdog subscription
+  - `resetWatchdog(name)`: Reset watchdog timer for specific tasks
+  - `statusTask()`: Internal task creation status logging
+- **Helper Functions**: Template-based map utilities (`inMap()`)
+- **Dependencies**: `freertos`, `esp_system`, `esp_timer`
+
+### Updating Libraries
+
+To update the DevLib submodule to the latest version:
+```bash
+git submodule update --remote components/DevLib
+git add components/DevLib
+git commit -m "Update DevLib to latest version"
+```
+
+To check the current submodule status:
+```bash
+git submodule status
+```
 
 ## Configuration
 
@@ -163,13 +217,15 @@ extern "C" void app_main(void) {
 The `taskManager` class provides:
 - Automatic watchdog registration
 - Task lifecycle management
-- Error logging and status reporting
+- Error logging and status reportingvia git submodule in the root `CMakeLists.txt`:
+```cmake
+set(EXTRA_COMPONENT_DIRS 
+    "${CMAKE_CURRENT_SOURCE_DIR}/components/DevLib/Common/libraries"
+    "${CMAKE_CURRENT_SOURCE_DIR}/components/DevLib/ESP-IDF/libraries"
+)
+```
 
-Example usage:
-```cpp
-tskMgr.add("TaskName", TaskFunction, NULL, priority, core, stackSize);
-tskMgr.resetWatchdog("TaskName");
-tskMgr.del("TaskName");
+This uses the [DevLib-DevelopmentBoardLibraries](https://github.com/Eubry/DevLib-DevelopmentBoardLibraries) repository as a git submodule, ensuring portable and version-controlled external dependencies.Mgr.del("TaskName");
 ```
 
 ## Development Notes
@@ -201,13 +257,30 @@ Monitor free heap at runtime:
 ESP_LOGI(TAG, "Free heap: %lu bytes", esp_get_free_heap_size());
 ```
 
-## Troubleshooting
+## TSubmodule Issues
+
+**Problem**: Components not found after cloning
+```
+Failed to resolve component 'Utils'
+```
+**Solution**: Initialize and update submodules:
+```bash
+git submodule update --init --recursive
+```
+
+**Problem**: Submodule out of sync
+**Solution**: Update to latest version:
+```bash
+git submodule update --remote components/DevLib
+```
 
 ### Build Issues
 
 **Problem**: Component not found
 ```
 Failed to resolve component 'Utils'
+```
+**Solution**: Ensure submodules are initialized
 ```
 **Solution**: Ensure external library paths are correct and CMakeLists.txt files exist in component directories.
 
@@ -243,7 +316,13 @@ Error: Could not open port COM11
 
 ```
 I (328) MAIN: Program started!
-I (328) TASK_MANAGER: Display status Task created successfully
+I (328) TASK_MANAGER: Display status Task cre
+- [DevLib Libraries Repository](https://github.com/Eubry/DevLib-DevelopmentBoardLibraries)
+
+## Related Repositories
+
+- [ESP32_S3-WebServer](https://github.com/Eubry/ESP32_S3-WebServer) - This project
+- [DevLib-DevelopmentBoardLibraries](https://github.com/Eubry/DevLib-DevelopmentBoardLibraries) - Shared development librariesated successfully
 I (1328) MAIN: OLED Started...
 I (2328) MAIN: OLED Started...
 ```

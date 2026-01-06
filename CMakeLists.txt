@@ -4,8 +4,8 @@ cmake_minimum_required(VERSION 3.16)
 
 # Add external component directories
 set(EXTRA_COMPONENT_DIRS 
-    "C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/Libraries/Common/libraries"
-    "C:/Users/eubry/OneDrive/Documents/Programs/Protoboard/ESP32/ESPIDF/Libraries/ESP-IDF/libraries"
+    "${CMAKE_CURRENT_SOURCE_DIR}/components/DevLib/Common/libraries"
+    "${CMAKE_CURRENT_SOURCE_DIR}/components/DevLib/ESP-IDF/libraries"
     )
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
