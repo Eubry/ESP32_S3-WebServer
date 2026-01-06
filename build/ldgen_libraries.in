@@ -130,6 +130,8 @@ $<TARGET_FILE:idf::esp_netif>
 $<TARGET_FILE:idf::wpa_supplicant>
 $<TARGET_FILE:idf::esp_coex>
 $<TARGET_FILE:idf::esp_wifi>
+$<TARGET_FILE:idf::Utils>
 $<TARGET_FILE:idf::main>
 $<TARGET_FILE:__idf_driver>
 $<TARGET_FILE:__idf_espressif__esp_lvgl_port>
+$<TARGET_FILE:__idf_Utils>
