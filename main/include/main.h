@@ -18,24 +18,24 @@ bool inMap(const std::string& key, const std::map<std::string, T>& myMap){
     return myMap.find(key) != myMap.end();
 }
 
-void statusTask(BaseType_t gpTaskResult, const char* TAG, const char* taskName) {
-   if(gpTaskResult != pdPASS) {
-      ESP_LOGE(TAG, "Failed to create %s task!", taskName);
-   } else {
-      ESP_LOGI(TAG, "%s Task created successfully", taskName);
-   }
-}
 class taskManager{
     private:
-        struct taskStruct{
-            TaskHandle_t handle;
-            std::string name;
-            void* param = NULL;
-            UBaseType_t priority = 1;
-            BaseType_t core = 0;
-            uint32_t stackSize = 1024;
-        }; 
-        std::map <std::string, taskStruct> _taskMap;
+    struct taskStruct{
+        TaskHandle_t handle;
+        std::string name;
+        void* param = NULL;
+        UBaseType_t priority = 1;
+        BaseType_t core = 0;
+        uint32_t stackSize = 1024;
+    }; 
+    std::map <std::string, taskStruct> _taskMap;
+    void statusTask(BaseType_t gpTaskResult, const char* TAG, const char* taskName) {
+       if(gpTaskResult != pdPASS) {
+          ESP_LOGE(TAG, "Failed to create %s task!", taskName);
+       } else {
+          ESP_LOGI(TAG, "%s Task created successfully", taskName);
+       }
+    }
     public:
         taskManager(){};
         void add(const std::string& name, TaskFunction_t taskFunc, void* param = NULL, UBaseType_t priority = 1, BaseType_t core = 0, uint32_t stackSize = 1024){
