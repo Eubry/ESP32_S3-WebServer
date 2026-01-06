@@ -1,0 +1,11 @@
+Command: cmake -G Ninja -B C:\Users\eubry\OneDrive\Documents\Programs\Protoboard\ESP32\ESPIDF\S3_Supermini\ESP32_S3 WebServer\main\build -DPYTHON_DEPS_CHECKED=1 -DPYTHON=C:\Espressif\python_env\idf6.0_py3.12_env\Scripts\python.exe -DESP_PLATFORM=1 -DCCACHE_ENABLE=True C:\Users\eubry\OneDrive\Documents\Programs\Protoboard\ESP32\ESPIDF\S3_Supermini\ESP32_S3 WebServer\main
+CMake Error at C:/Users/eubry/esp/v6.0/esp-idf/tools/cmake/build.cmake:376 (message):
+  Failed to resolve component 'Utils' required by component 'main': unknown
+  name.
+Call Stack (most recent call first):
+  C:/Users/eubry/esp/v6.0/esp-idf/tools/cmake/build.cmake:425 (__build_resolve_and_add_req)
+  C:/Users/eubry/esp/v6.0/esp-idf/tools/cmake/build.cmake:749 (__build_expand_requirements)
+  C:/Users/eubry/esp/v6.0/esp-idf/tools/cmake/project.cmake:741 (idf_build_process)
+  CMakeLists.txt:14 (project)
+
+

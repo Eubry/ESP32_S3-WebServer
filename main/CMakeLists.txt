@@ -10,6 +10,7 @@ idf_component_register(SRCS "main.cpp" "lib/SSD1306/SSD1306.cpp"
                         esp_lvgl_port
                         esp_wifi 
                         nvs_flash
+                        Utils
                     INCLUDE_DIRS "." "include" "lib")
 
 
