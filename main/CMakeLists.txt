@@ -15,6 +15,14 @@ idf_component_register(SRCS "main.cpp" "lib/SSD1306/SSD1306.cpp"
                         Utils
                         wifiManager
                         pinManager
+                        webServer
                     INCLUDE_DIRS "." "include" "lib")
+
+# Force C++17 standard for this component (required for some ESP-IDF toolchains)
+set_property(TARGET ${COMPONENT_LIB} PROPERTY CXX_STANDARD 17)
+set_property(TARGET ${COMPONENT_LIB} PROPERTY CXX_STANDARD_REQUIRED ON)
+
+# Ensure C++17 standard is used
+target_compile_features(${COMPONENT_LIB} PUBLIC cxx_std_17)
 
 

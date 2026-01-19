@@ -16,22 +16,27 @@
 #define LOG_TAG "MAIN"
 #define WIFI_SSID "R3X4S"//CONFIG_ESP_WIFI_SSID
 #define WIFI_PASS "N1C0L4T3SL4"//CONFIG_ESP_WIFI_PASSWORD
+#define BUZZER_PIN 14
+#define LEDC_TIMER LEDC_TIMER_0
+#define LEDC_MODE LEDC_LOW_SPEED_MODE
+#define LEDC_CHANNEL LEDC_CHANNEL_0
+#define LEDC_DUTY_RES LEDC_TIMER_8_BIT
 //------Global Objects------
 OLEDDisplay disp;
 oledParam_t oledParams;
 taskManager tskMgr;
 wifiConnection wConn(WIFI_SSID, WIFI_PASS,5,"ESP32S3WS");
 httpd_handle_t server = NULL;
+pinManager pMgr;
+serverManager webSrv;
 //------Function Prototypes------
 void DspStat(void *pvParameters);
 void wifi(void *pvParameters);
-esp_err_t root_handler(httpd_req_t *req);
-httpd_handle_t start_webserver(void);
 //------Main Application------
 extern "C" void app_main(void) {
+   // Initialize OLED Display------
    oledParams.pinSCL = 13;
    oledParams.pinSDA = 12;
-
    disp.begin(oledParams);
    disp.addLabel("stat", 0, 0);
    disp.addLabel("swifi", 0, 12);
@@ -41,14 +46,18 @@ extern "C" void app_main(void) {
    disp.setLabel("swifi", "-");
    disp.setLabel("wstat", "-");
    disp.setLabel("outloop", "-");
-
-   vTaskDelay(pdMS_TO_TICKS(500));
+   //------------------------------
+   // Small delay to ensure display is ready
+   vTaskDelay(pdMS_TO_TICKS(200));
+   //------------------------------
+   // Pin Manager Setup------------
+   pMgr.pwmPin("buzzer", 10, 5000, LEDC_TIMER, LEDC_TIMER_13_BIT);
+   // Initialize Tasks-------------
    disp.setLabel("stat", "Init tasks...");
+   //------------------------------
    wConn.begin(WIFI_MODE_STA);
    tskMgr.add("DisplayStat", DspStat, NULL, 1, 0, 4096);
    tskMgr.add("WifiConn", wifi, NULL, 6, 1, 4096);
-   
-   
 }
 
 //------Function Definitions------
@@ -76,9 +85,27 @@ void DspStat(void *pvParameters) {
       vTaskDelay(pdMS_TO_TICKS(10));
    }
 }
+void buzzActive(void *pvPar) {
+   pMgr.tone("buzzer", 1000); // 1000Hz tone
+}
+void buzzdeActive(void *pvPar) {
+   pMgr.noTone("buzzer");
+}
+
 void wifi(void *pvParameters) {
    static cTime rwdt;
    static cTime upt;
+   webSrv.addHTMLPath("root",HTTP_GET,serverManager::webData{"/","<html><body><h1>ESP32-S3 WebServer</h1><p>Welcome to ESP32-S3 HTTP Server!</p></body></html>","200 OK",""});
+   webSrv.addHTMLPath("favicon",HTTP_GET,serverManager::webData{"/favicon.ico",nullptr,"204 No Content","favicon not available"});
+   webSrv.addAPIPath("buzzer", serverManager::apiData{
+      HTTP_POST,
+      "Content too long",
+      "ledGreen",
+      {
+         {"active", serverManager::apiOption{"\"value\":\"on\"","{\"ledGreen\":{\"status\":\"tone\",\"type\":\"digital\",\"value\":\"1\"}}","application/json",buzzActive}},
+         {"stop", serverManager::apiOption{"\"value\":\"off\"","{\"ledGreen\":{\"status\":\"stopped\",\"type\":\"digital\",\"value\":\"0\"}}","application/json",buzzdeActive}}
+      }
+   });
    disp.setLabel("swifi", "Wifi Started");
    while(1) {
       // Update WiFi status display
@@ -86,7 +113,7 @@ void wifi(void *pvParameters) {
       if(upt.finish()) {
          // Start HTTP server when WiFi is connected
          if(wConn.isConnected() && server == NULL) {
-            server = start_webserver();
+            server = webSrv.begin();
             if(server != NULL) {
                ESP_LOGI(LOG_TAG, "HTTP Server started");
             }
@@ -107,35 +134,4 @@ void wifi(void *pvParameters) {
       vTaskDelay(pdMS_TO_TICKS(10));
 
    }
-}
-
-// HTTP GET handler for root path
-esp_err_t root_handler(httpd_req_t *req) {
-   const char* resp_str = "<html><body><h1>ESP32-S3 WebServer</h1><p>Welcome to ESP32-S3 HTTP Server!</p></body></html>";
-   httpd_resp_send(req, resp_str, HTTPD_RESP_USE_STRLEN);
-   return ESP_OK;
-}
-
-// Start HTTP server
-httpd_handle_t start_webserver(void) {
-   httpd_handle_t server_instance = NULL;
-   httpd_config_t config = HTTPD_DEFAULT_CONFIG();
-   config.lru_purge_enable = true;
-
-   // Start the httpd server
-   ESP_LOGI(LOG_TAG, "Starting HTTP server on port: '%d'", config.server_port);
-   if (httpd_start(&server_instance, &config) == ESP_OK) {
-      // Set URI handlers
-      httpd_uri_t root = {
-         .uri       = "/",
-         .method    = HTTP_GET,
-         .handler   = root_handler,
-         .user_ctx  = NULL
-      };
-      httpd_register_uri_handler(server_instance, &root);
-      return server_instance;
-   }
-
-   ESP_LOGI(LOG_TAG, "Error starting HTTP server!");
-   return NULL;
 }
