@@ -51,7 +51,11 @@ extern "C" void app_main(void) {
    vTaskDelay(pdMS_TO_TICKS(200));
    //------------------------------
    // Pin Manager Setup------------
-   pMgr.pwmPin("buzzer", 10, 5000, LEDC_TIMER, LEDC_TIMER_13_BIT);
+   pMgr.pwmPin("buzzer", 11, 5000, LEDC_TIMER, LEDC_TIMER_13_BIT);
+   pMgr.digitalPin("ledGreen", 10, GPIO_MODE_OUTPUT);
+   pMgr.digitalPin("ledYellow", 9, GPIO_MODE_OUTPUT);
+   pMgr.digitalPin("ledRed", 8, GPIO_MODE_OUTPUT);
+
    // Initialize Tasks-------------
    disp.setLabel("stat", "Init tasks...");
    //------------------------------
@@ -91,22 +95,50 @@ void buzzActive(void *pvPar) {
 void buzzdeActive(void *pvPar) {
    pMgr.noTone("buzzer");
 }
+struct LedParam {
+   const char* name;
+   uint8_t value;
+};
+void ledActive(void *pvPar) {
+   ESP_LOGI("LEDFN","CALLLED");
+   LedParam* data = (LedParam*)pvPar;
+   if(strcmp(data->name, "ledGreen") == 0){
+      pMgr.digitalWrite(data->name, data->value);
+   }
+   if(strcmp(data->name, "ledYellow") == 0){
+      pMgr.digitalWrite(data->name, data->value);
+   }
+   if(strcmp(data->name, "ledRed") == 0){
+      pMgr.digitalWrite(data->name, data->value);
+   }
+}
 
 void wifi(void *pvParameters) {
    static cTime rwdt;
    static cTime upt;
    webSrv.addHTMLPath("root",HTTP_GET,serverManager::webData{"/","<html><body><h1>ESP32-S3 WebServer</h1><p>Welcome to ESP32-S3 HTTP Server!</p></body></html>","200 OK",""});
    webSrv.addHTMLPath("favicon",HTTP_GET,serverManager::webData{"/favicon.ico",nullptr,"204 No Content","favicon not available"});
-   webSrv.addAPIPath("buzzer", serverManager::apiData{
-      HTTP_POST,
-      "Content too long",
-      "ledGreen",
-      {
-         {"active", serverManager::apiOption{"\"value\":\"on\"","{\"ledGreen\":{\"status\":\"tone\",\"type\":\"digital\",\"value\":\"1\"}}","application/json",buzzActive}},
-         {"stop", serverManager::apiOption{"\"value\":\"off\"","{\"ledGreen\":{\"status\":\"stopped\",\"type\":\"digital\",\"value\":\"0\"}}","application/json",buzzdeActive}}
-      }
-   });
-   disp.setLabel("swifi", "Wifi Started");
+
+   static LedParam ledGNPA{"ledGreen", 1};
+   static LedParam ledGNPD{"ledGreen", 0};
+   static LedParam ledYEPA{"ledYellow", 1};
+   static LedParam ledYEPD{"ledYellow", 0};
+   static LedParam ledRDPA{"ledRed", 1};
+   static LedParam ledRDPD{"ledRed", 0};
+
+   webSrv.addAPIPath("ledGreen", serverManager::apiData{HTTP_POST,"Content too long","ledGreen",{
+      {"active", serverManager::apiOption{"\"value\":\"on\"","{\"ledGreen\":{\"status\":\"tone\",\"type\":\"digital\",\"value\":\"1\"}}","application/json",ledActive, (void*)&ledGNPA}},
+      {"stop", serverManager::apiOption{"\"value\":\"off\"","{\"ledGreen\":{\"status\":\"stopped\",\"type\":\"digital\",\"value\":\"0\"}}","application/json",ledActive, (void*)&ledGNPD}}
+   }});
+   webSrv.addAPIPath("ledYellow", serverManager::apiData{HTTP_POST,"Content too long","ledYellow",{
+      {"active", serverManager::apiOption{"\"value\":\"on\"","{\"ledYellow\":{\"status\":\"tone\",\"type\":\"digital\",\"value\":\"1\"}}","application/json",ledActive, (void*)&ledYEPA}},
+      {"stop", serverManager::apiOption{"\"value\":\"off\"","{\"ledYellow\":{\"status\":\"stopped\",\"type\":\"digital\",\"value\":\"0\"}}","application/json",ledActive, (void*)&ledYEPD}}
+   }});
+   webSrv.addAPIPath("ledRed", serverManager::apiData{HTTP_POST,"Content too long","ledRed",{
+      {"active", serverManager::apiOption{"\"value\":\"on\"","{\"ledRed\":{\"status\":\"tone\",\"type\":\"digital\",\"value\":\"1\"}}","application/json",ledActive, (void*)&ledRDPA}},
+      {"stop", serverManager::apiOption{"\"value\":\"off\"","{\"ledRed\":{\"status\":\"stopped\",\"type\":\"digital\",\"value\":\"0\"}}","application/json",ledActive, (void*)&ledRDPD}}
+   }});
+   disp.setLabel("swifi", "WiFi Started");
    while(1) {
       // Update WiFi status display
       upt.wait(500000); // 500000 microseconds = 0.5 seconds

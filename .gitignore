@@ -1939,3 +1939,7 @@ build/esp-idf/main/CMakeFiles/__idf_main.dir/lib/SSD1306/SSD1306.cpp.obj
 build/CMakeCache.txt
 build/CMakeFiles/CMakeConfigureLog.yaml
 build/CMakeFiles/git-data/head-ref
+build/CMakeFiles/CMakeConfigureLog.yaml
+build/CMakeFiles/git-data/head-ref
+build/esp-idf/webServer/libwebServer.a
+build/esp-idf/webServer/CMakeFiles/__idf_webServer.dir/webManager.cpp.obj
